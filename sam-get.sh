@@ -49,18 +49,18 @@ echo "Downloading Sam-get tool.."
 wget -N --no-check-certificate https://raw.githubusercontent.com/neodevpro/sam-get/master/sam-get.zip
 unzip sam-get.zip
 clear
-
-echo "Enter Model Region (Example:SM-N9500 CHC): "
+ 
+echo "Enter Model and Region (Example:SM-N9500 CHC): "
 read model
 info=$(python3 main.py checkupdate $model)
-name=${info:0:13}
+name=${model:0:8}"_"${model:9:3}${info:0:13}
 python3 main.py download $info $model $name.enc4
 python3 main.py decrypt4 $info $model $name.enc4 $name.zip
 rm -rf $name.enc4 main.py sam-get.zip samcatcher
 
 echo "You have download the firmware successfully "
 echo ""
-echo "file name : $name "
+echo "file name : $name.zip "
 exit
 
 
