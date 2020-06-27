@@ -53,7 +53,7 @@ clear
 echo "Enter Model and Region (Example:SM-N9500 CHC): "
 read model
 info=$(python3 main.py checkupdate $model)
-name=${model:0:8}"_"${model:9:3}${info:0:13}
+name=${model:0:8}"_"${model:9:3}"_"${info:0:13}
 python3 main.py download $info $model $name.enc4
 python3 main.py decrypt4 $info $model $name.enc4 $name.zip
 rm -rf $name.enc4 main.py sam-get.zip samcatcher
