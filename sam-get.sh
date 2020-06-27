@@ -48,8 +48,7 @@ clear
 echo "Enter Model Region (Example:SM-N9500 CHC): "
 read model
 info=$(python3 main.py checkupdate $model)
-sp="_"
-name=${model:0:8}$sp$info
+name=${info:0:13}
 python3 main.py download $info $model $name.enc4
 python3 main.py decrypt4 $info $model $name.enc4 $name.zip
 
