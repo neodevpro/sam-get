@@ -16,6 +16,7 @@ else
     echo "==============="
     exit
 fi
+clear
 
 echo -n "Checking dependencies... "
 echo ""
@@ -51,6 +52,7 @@ info=$(python3 main.py checkupdate $model)
 name=${info:0:13}
 python3 main.py download $info $model $name.enc4
 python3 main.py decrypt4 $info $model $name.enc4 $name.zip
+rm -rf $name.enc4 main.py sam-get.zip samcatcher
 
 echo "You have download the firmware successfully "
 echo ""
