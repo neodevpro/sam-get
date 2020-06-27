@@ -10,6 +10,10 @@ elif cat /proc/version | grep -Eqi "debian"; then
     release="debian"
 elif cat /proc/version | grep -Eqi "ubuntu"; then
     release="ubuntu"
+elif cat /etc/os-release | grep -Eqi "ubuntu"; then
+    release="ubuntu"
+elif cat /etc/os-release | grep -Eqi "debian"; then
+    release="debian"
 else
     echo "==============="
     echo "Not supported"
